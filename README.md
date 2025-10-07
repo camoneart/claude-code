@@ -4,6 +4,6 @@
 
 - Claude Code subagents collection.
 
-## custom-slash-commands
+## custom-slash-commands/
 
 - Claude Code custom slash commands collection.
