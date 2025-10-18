@@ -75,3 +75,6 @@ coverage/
 
 # cc log
 _docs/templates
+
+# Examples (test files)
+examples/
