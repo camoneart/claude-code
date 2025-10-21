@@ -8,7 +8,7 @@
 
 ## [Custom slash commands](https://docs.claude.com/en/docs/claude-code/slash-commands#custom-slash-commands)
 
-### custom-slash-commands/
+### commands/
 
 - Claude Code custom slash commands collection.
 
