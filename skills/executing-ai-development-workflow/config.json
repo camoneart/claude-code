@@ -1,0 +1,99 @@
+{
+  "priority_rules": {
+    "critical": {
+      "keywords": [
+        "security vulnerability",
+        "SQL injection",
+        "XSS",
+        "CSRF",
+        "authentication bypass",
+        "data leak",
+        "remote code execution",
+        "privilege escalation",
+        "critical bug",
+        "crash",
+        "data loss"
+      ],
+      "patterns": [
+        "eval\\(",
+        "innerHTML\\s*=",
+        "dangerouslySetInnerHTML"
+      ]
+    },
+    "high": {
+      "keywords": [
+        "performance issue",
+        "memory leak",
+        "race condition",
+        "deadlock",
+        "n+1 query",
+        "blocking operation",
+        "architectural flaw",
+        "scalability issue",
+        "breaking change"
+      ]
+    },
+    "medium": {
+      "keywords": [
+        "code smell",
+        "best practice",
+        "maintainability",
+        "readability",
+        "code duplication",
+        "complexity",
+        "error handling",
+        "logging"
+      ]
+    },
+    "low": {
+      "keywords": [
+        "style",
+        "formatting",
+        "naming convention",
+        "comment",
+        "documentation",
+        "typo",
+        "whitespace"
+      ]
+    }
+  },
+  "review_agents": [
+    {
+      "name": "code-reviewer",
+      "description": "コード品質全般のレビュー",
+      "enabled": true
+    },
+    {
+      "name": "security-auditor",
+      "description": "セキュリティ脆弱性の検出",
+      "enabled": true
+    },
+    {
+      "name": "architect-review",
+      "description": "アーキテクチャとデザインパターンの評価",
+      "enabled": true
+    },
+    {
+      "name": "test-ai-tdd-expert",
+      "description": "テストカバレッジと品質の評価",
+      "enabled": true
+    }
+  ],
+  "coderabbit_cli": {
+    "enabled": true,
+    "command": "coderabbit --prompt-only --type uncommitted",
+    "review_timing": "post_implementation",
+    "output_format": "markdown"
+  },
+  "auto_fix_threshold": "high",
+  "documentation": {
+    "plans_dir": "_docs/plans",
+    "reviews_dir": "_docs/reviews",
+    "date_format": "YYYY-MM-DD"
+  },
+  "human_confirmation_points": [
+    "after_planning",
+    "before_medium_fixes",
+    "before_pr_creation"
+  ]
+}
