@@ -1,4 +1,4 @@
-# Claude Code 管理用リポジトリ
+# Claude Code Collection
 
 ## [Subagents](https://docs.claude.com/en/docs/claude-code/sub-agents)
 
