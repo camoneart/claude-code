@@ -120,6 +120,7 @@ Before completion, verify:
 - [ ] Code blocks properly formatted
 - [ ] Technical terms consistent
 - [ ] Natural Japanese expressions
+- [ ] No garbled text (文字化けなし)
 - [ ] Metadata header included
 - [ ] Implementation log created
 
