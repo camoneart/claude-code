@@ -22,7 +22,8 @@ Translation Progress:
 - [ ] Step 1: Fetch article content
 - [ ] Step 2: Translate to Japanese
 - [ ] Step 3: Save to file
-- [ ] Step 4: Create implementation log
+- [ ] Step 4: Verify translation (no garbled text)
+- [ ] Step 5: Create implementation log
 ```
 
 ### Step 1: Fetch article content
@@ -72,7 +73,29 @@ Translation Progress:
 - Filename: Kebab-case title + `.md`
 - Example: `cc-catch-up/agent-skills/agent-skills.md`
 
-### Step 4: Create implementation log
+### Step 4: Verify translation quality
+
+**Critical verification step**:
+
+After saving the translated file, **必ず必ず必ず最終確認**を実行すること：
+
+1. **Read the saved file** to verify content
+2. **Check for garbled text** (文字化け):
+   - Japanese characters display correctly
+   - No mojibake (e.g., "æ–‡å­—åŒ–ã'" instead of "文字化け")
+   - Code blocks and special characters intact
+3. **If garbled text found**:
+   - Identify the cause (encoding issue, incorrect character conversion)
+   - Fix the garbled sections immediately
+   - Save the corrected version
+   - Re-verify until no issues remain
+4. **If no issues found**:
+   - Confirm completion to user
+   - Proceed to Step 5
+
+**Important**: Do not skip this verification. Garbled text makes the translation unusable.
+
+### Step 5: Create implementation log
 
 Save log to `_docs/templates/YYYY-MM-DD_translated-title.md`:
 
