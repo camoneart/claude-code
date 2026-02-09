@@ -1,8 +1,8 @@
 # Commit Prefix Reference
 
-## 完全なPrefix一覧
+## Prefix一覧
 
-| Prefix       | 用途 (日本語)          | 説明                                                         |
+| Prefix       | 用途                   | 説明                                                         |
 | ------------ | ---------------------- | ------------------------------------------------------------ |
 | **fix**      | バグ修正               | コードの不具合を修正するコミット                             |
 | **hotfix**   | クリティカルなバグ修正 | サービス停止レベルの緊急バグ対応                             |
@@ -20,6 +20,8 @@
 | **style**    | スタイル修正           | コードフォーマット、空白、セミコロンなど動作に影響しない変更 |
 | **perf**     | パフォーマンス         | パフォーマンス改善のための実装変更                           |
 | **test**     | テスト                 | テストコードの追加・更新・リファクタ                         |
+| **build**    | ビルド                 | ビルドシステムや外部依存の変更                               |
+| **ci**       | CI                     | CI設定の変更                                                 |
 | **chore**    | 雑多メンテ             | ビルド、CI、依存更新など本番コードに影響しない作業           |
 
 ## Prefix選択ガイドライン
@@ -40,7 +42,7 @@
 ### その他
 - テストのみ → `test`
 - ドキュメントのみ → `docs`
-- ビルド・CI → `chore`
+- ビルド・CI → `chore`, `build`, `ci`
 - 不要コード削除 → `clean` or `remove`
 
 ## 不明なPrefixの扱い
@@ -49,15 +51,16 @@
 
 ## コミットメッセージの例
 
-### Good Examples
+### Good
 ```
 test: add edge-case tests for user authentication
 feat: implement dark mode toggle in settings
 fix: resolve memory leak in event listener
 refactor: extract validation logic into separate module
+add(skill): create commit skill with unified workflow
 ```
 
-### Bad Examples
+### Bad
 ```
 update files
 fix stuff
@@ -67,14 +70,14 @@ wip
 
 ## 複数の変更がある場合
 
-複数の目的が混在する場合は、**必ず分割**してコミット：
+複数の目的が混在する場合は、**必ず分割**してコミット:
 
 ```bash
-# ❌ 悪い例
+# Bad
 git add -A
 git commit -m "feat: add feature and fix bug"
 
-# ✅ 良い例
+# Good
 git add src/feature.ts
 git commit -m "feat: add new feature"
 
