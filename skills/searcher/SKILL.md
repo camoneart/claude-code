@@ -194,6 +194,23 @@ Fetch で Web 検索する際には、まず、"Brave-Search MCP サーバー" �
 2. **第二選択**: Firecrawl Search MCP（詳細調査が必要な場合）
 3. **フォールバック**: WebSearch（Brave Searchが使用できない場合）
 
+### OSS ライブラリ情報取得時の特別ルール
+
+OSSライブラリに関する情報が必要な場合は、**Context7 MCP Server** を優先使用：
+
+```
+Context7 MCP Server
+  ↓ 利用不可の場合
+Brave-Search MCP Server
+  ↓ 利用不可の場合
+WebFetch MCP Server
+```
+
+Context7 の利点：
+- 最新の公式ドキュメント
+- ライブラリ特化の情報
+- API リファレンス
+
 ### MCP使用時の叫び
 
 CLAUDE.mdのルールに従い、MCPサーバー使用時は以下の形式で通知します：
