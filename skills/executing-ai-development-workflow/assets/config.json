@@ -1,4 +1,44 @@
 {
+  "default_mode": "light",
+  "mode_rules": {
+    "full_triggers": {
+      "keywords_ja": [
+        "品質重視",
+        "多層レビュー",
+        "Full mode",
+        "フルモード",
+        "セキュリティ",
+        "認証",
+        "決済",
+        "大規模",
+        "リファクタリング"
+      ],
+      "keywords_en": [
+        "quality-focused",
+        "full review",
+        "Full mode",
+        "security",
+        "payment",
+        "large-scale",
+        "refactoring"
+      ],
+      "conditions": [
+        "security_related_feature",
+        "10_or_more_files_changed",
+        "user_explicitly_requests_full",
+        "public_api_breaking_change",
+        "database_schema_change"
+      ]
+    }
+  },
+  "branch_naming": {
+    "pattern": "feature/[issue-number]-[feature-name]",
+    "fallback_pattern": "feature/[feature-name]",
+    "examples": [
+      "feature/123-user-authentication",
+      "feature/user-profile-card"
+    ]
+  },
   "priority_rules": {
     "critical": {
       "keywords": [
@@ -91,9 +131,14 @@
     "reviews_dir": "_docs/reviews",
     "date_format": "YYYY-MM-DD"
   },
-  "human_confirmation_points": [
-    "after_planning",
-    "before_medium_fixes",
-    "before_pr_creation"
-  ]
+  "human_confirmation_points": {
+    "light": [
+      "after_planning"
+    ],
+    "full": [
+      "after_planning",
+      "before_medium_fixes",
+      "before_pr_creation"
+    ]
+  }
 }

@@ -1,5 +1,5 @@
 ---
-name: Designing Beautiful Frontends
+name: designing-beautiful-frontends
 description: Create visually stunning, distinctive UI designs that break from generic patterns. Use when building user interfaces, styling components, or when the user mentions UI/UXデザイン/美しいUI/フロントエンドデザイン/コンポーネント作成/かっこいいUI/印象的なデザイン.
 allowed-tools: Write, Read, Edit, Bash
 ---

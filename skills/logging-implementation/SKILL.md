@@ -1,5 +1,5 @@
 ---
-name: Logging Implementation
+name: logging-implementation
 description: Manage implementation logs in _docs/templates/ with consistent format. Use when starting project work, completing implementations, or when user mentions 実装ログ/implementation log.
 allowed-tools: Read, Write, Edit, Bash
 ---

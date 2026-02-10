@@ -6,20 +6,20 @@
 
 ---
 
-## 📊 サマリー
+## サマリー
 
 | 優先度 | 件数 | 対応方針 |
 |--------|------|----------|
-| 🔴 Critical | {{CRITICAL_COUNT}} | ✅ 即時修正 |
-| 🟠 High | {{HIGH_COUNT}} | ✅ 即時修正 |
-| 🟡 Medium | {{MEDIUM_COUNT}} | 🤔 人間が判断 |
-| 🟢 Low | {{LOW_COUNT}} | 📝 記録のみ |
+| Critical | {{CRITICAL_COUNT}} | 即時修正 |
+| High | {{HIGH_COUNT}} | 即時修正 |
+| Medium | {{MEDIUM_COUNT}} | 人間が判断 |
+| Low | {{LOW_COUNT}} | 記録のみ |
 
 **総指摘数**: {{TOTAL_COUNT}}
 
 ---
 
-## 🤖 Sub-Agent レビュー結果
+## Sub-Agent レビュー結果
 
 ### 1. Code Reviewer
 **実行時刻**: {{CODE_REVIEW_TIME}}
@@ -61,7 +61,7 @@
 
 ---
 
-## 🐰 CodeRabbit CLI レビュー結果
+## CodeRabbit CLI レビュー結果
 
 **実行時刻**: {{CODERABBIT_TIME}}
 **コマンド**: `{{CODERABBIT_COMMAND}}`
@@ -73,7 +73,7 @@
 
 ---
 
-## 🔴 Critical Issues（即時修正）
+## Critical Issues（即時修正）
 
 {{#each CRITICAL_ISSUES}}
 ### {{this.id}}. {{this.title}}
@@ -87,7 +87,7 @@
 
 ---
 
-## 🟠 High Priority Issues（即時修正）
+## High Priority Issues（即時修正）
 
 {{#each HIGH_ISSUES}}
 ### {{this.id}}. {{this.title}}
@@ -101,7 +101,7 @@
 
 ---
 
-## 🟡 Medium Priority Issues（人間判断）
+## Medium Priority Issues（人間判断）
 
 {{#each MEDIUM_ISSUES}}
 ### {{this.id}}. {{this.title}}
@@ -116,7 +116,7 @@
 
 ---
 
-## 🟢 Low Priority Issues（記録のみ）
+## Low Priority Issues（記録のみ）
 
 {{#each LOW_ISSUES}}
 ### {{this.id}}. {{this.title}}
@@ -128,7 +128,7 @@
 
 ---
 
-## ✅ 修正完了リスト
+## 修正完了リスト
 
 {{#each FIXED_ISSUES}}
 - [x] {{this.id}}: {{this.title}} - {{this.file}}:{{this.line}}
@@ -136,7 +136,7 @@
 
 ---
 
-## 📝 次のアクション
+## 次のアクション
 
 1. [ ] Critical/High issues の修正を実装
 2. [ ] Medium issues について人間と相談

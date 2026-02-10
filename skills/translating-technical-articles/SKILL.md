@@ -1,5 +1,5 @@
 ---
-name: Translating Technical Articles
+name: translating-technical-articles
 description: Translates English technical articles (engineering blogs, documentation) to Japanese while preserving layout and structure. Use when the user asks to translate an article, convert English content to Japanese, or mentions translating a URL or technical blog post.
 ---
 
