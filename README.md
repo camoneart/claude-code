@@ -12,7 +12,7 @@
 
 - Claude Code custom slash commands collection.
 
-## [Agent Skills](https://docs.claude.com/en/docs/claude-code/skills)
+## [Skills](https://docs.claude.com/en/docs/claude-code/skills)
 
 ### skills/
 
