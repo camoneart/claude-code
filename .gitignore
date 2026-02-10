@@ -78,3 +78,6 @@ _docs/templates
 
 # Examples (test files)
 examples/
+
+# issue
+_issues/
