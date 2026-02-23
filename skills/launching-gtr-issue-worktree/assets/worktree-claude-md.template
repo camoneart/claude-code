@@ -1,0 +1,43 @@
+# Current Task: Issue #{{NUMBER}}
+
+## {{TITLE}}
+
+{{BODY}}
+
+{{LABELS_SECTION}}
+
+## Progress Tracking
+
+{{TODO_SECTION}}
+
+## Instructions
+
+- This worktree was created to work on the above issue
+- Focus on implementing the requirements described in the issue
+- Create a feature branch and commit changes with references to issue #{{NUMBER}}
+- When implementation is complete, create a PR that closes this issue
+
+### Task Completion Checklist Rule
+
+**IMPORTANT: After completing each ToDo item, immediately update the GitHub issue checkbox.**
+
+Use the following procedure to check off a completed task:
+
+1. Get the current issue body:
+   ```bash
+   gh issue view {{NUMBER}} --json body -q .body > /tmp/issue-{{NUMBER}}-body.md
+   ```
+
+2. Edit the file to change the completed item from `- [ ]` to `- [x]`:
+   ```bash
+   sed -i '' 's/- \[ \] <exact task text>/- [x] <exact task text>/' /tmp/issue-{{NUMBER}}-body.md
+   ```
+
+3. Update the issue:
+   ```bash
+   gh issue edit {{NUMBER}} --body "$(cat /tmp/issue-{{NUMBER}}-body.md)"
+   ```
+
+- Check off items **one at a time**, immediately after completing each task
+- Never batch-update all checkboxes at the end — update as you go
+- This ensures the GitHub issue always reflects real-time progress
