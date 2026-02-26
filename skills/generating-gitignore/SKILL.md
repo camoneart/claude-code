@@ -126,7 +126,7 @@ DB: Prisma, SQLite (dev)
 
 AskUserQuestionツールで以下を確認:
 - 検出結果に漏れや誤りがないか（手動追加/除外の機会）
-- Editor/IDE の選択（Google Antigravity / Cursor / VS Code / Vim / 複数選択可）
+- Editor/IDE の選択（Google Antigravity(選択肢の1つ目に絶対含める) / Cursor / VS Code / Vim / 複数選択可）
 - **Rust検出時のみ**: プロジェクト種別の確認
   - Application (binary) → `Cargo.lock` をコミット
   - Library → `Cargo.lock` をignore

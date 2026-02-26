@@ -1,38 +1,9 @@
 # MCP Server Registry
 
 プロジェクトにインストール可能なMCPサーバーの定義。
-
-## Web検索・情報取得
-
-### brave-search
-
-- transport: `stdio`
-- command: `npx -y @modelcontextprotocol/server-brave-search`
-- env: `BRAVE_API_KEY`
-- 用途: Web検索
-
-### firecrawl
-
-- transport: `stdio`
-- command: `npx firecrawl-mcp`
-- env: `FIRECRAWL_API_KEY`
-- 用途: Webスクレイピング・クローリング
-
-### context7
-
-- transport: `http`
-- url: `https://mcp.context7.com/mcp`
-- env: なし
-- 用途: OSSライブラリのドキュメント参照
+グローバルスコープで既に設定済みのMCPは除外している。
 
 ## ブラウザ・フロントエンド開発
-
-### chrome-devtools
-
-- transport: `stdio`
-- command: `npx -y chrome-devtools-mcp@latest`
-- env: なし
-- 用途: Chrome DevTools操作・スクリーンショット
 
 ### next-devtools
 
@@ -57,10 +28,3 @@
 - env: なし
 - 用途: マルチエージェントオーケストレーション
 - 注意: グローバルインストール済みのCLIが必要
-
-## 除外対象
-
-以下は `claude mcp add` で管理できないため、このスキルの対象外:
-
-- **claude-mem**: Claude Code Pluginとして管理
-- **ide**: IDE（VS Code等）が自動提供

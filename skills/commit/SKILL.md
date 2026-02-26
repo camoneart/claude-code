@@ -25,8 +25,9 @@ Task Progress:
 - [ ] Step 2: 変更分析・ファイル分類
 - [ ] Step 3: Prefix選択・メッセージ生成
 - [ ] Step 4: ユーザー確認
-- [ ] Step 5: 個別ステージング・コミット実行
-- [ ] Step 6: 結果報告
+- [ ] Step 5: AskUserQuestionでコミット確認
+- [ ] Step 6: 個別ステージング・コミット実行
+- [ ] Step 7: 結果報告
 
 ### Step 1: 状態確認
 
@@ -40,6 +41,7 @@ git log --oneline -5
 ### Step 2: 変更分析・ファイル分類
 
 変更ファイルを目的別にグループ化:
+
 - テストコード
 - 実装コード
 - ドキュメント
@@ -52,6 +54,7 @@ git log --oneline -5
 Prefix一覧は [prefix-reference.md](prefix-reference.md) を参照。
 
 **メッセージフォーマット**:
+
 ```
 <type>(<scope>): <subject>
 
@@ -66,11 +69,20 @@ Prefix一覧は [prefix-reference.md](prefix-reference.md) を参照。
 ### Step 4: ユーザー確認
 
 以下を提示して確認:
+
 - 提案するコミットメッセージ
 - ステージング対象ファイル
 - 分割が必要な場合はその提案
 
-### Step 5: 個別ステージング・コミット実行
+### Step 5: AskUserQuestionでコミット確認
+
+この内容でコミットしていい？
+
+1. OK. コミットして
+2. NO. まだコミットしない
+3. Type something.
+
+### Step 6: 個別ステージング・コミット実行
 
 ```bash
 git add path/to/file1.ts
@@ -83,9 +95,10 @@ EOF
 )"
 ```
 
-### Step 6: 結果報告
+### Step 7: 結果報告
 
 コミット完了後に表示:
+
 - コミットハッシュ
 - コミットメッセージ
 - 変更ファイル数
@@ -93,6 +106,7 @@ EOF
 ## 警告・中断
 
 以下を検出した場合、**警告を表示し処理を中断**:
+
 - `git add -A` / `git add .` の使用
 - 不明確なコミットメッセージ（`update files`, `fix stuff`, `changes`, `wip`）
 - 複数目的が混在するコミット

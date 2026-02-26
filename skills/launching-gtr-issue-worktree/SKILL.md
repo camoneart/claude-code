@@ -1,8 +1,10 @@
 ---
 name: launching-gtr-issue-worktree
 description: >
-  Create a git worktree via gtr (git-worktree-runner) for a GitHub issue and generate a CLAUDE.md
+  Create a git worktree via gtr (git-worktree-runner) for a GitHub issue and generate a CLAUDE.local.md
   with issue context so that Claude Code launched in that worktree knows what to work on.
+  Issue-specific context is written to CLAUDE.local.md (not .claude/CLAUDE.md) to avoid
+  Git conflicts when merging PRs from multiple worktrees.
   Use when user mentions "gtr issue", "issue worktree", "issueでworktree", "issueに着手",
   "gtr-issue", or wants to set up an isolated worktree for a specific GitHub issue.
   Requires: gtr (git-worktree-runner) and gh CLI installed.
@@ -100,9 +102,30 @@ Important:
 - If the issue body already contains a checklist (`- [ ]` or `- [x]`), skip this step and reuse the existing checklist
 - Preserve all original markdown formatting
 
-### 7. Generate CLAUDE.md
+### 7. Ensure CLAUDE.local.md is in .gitignore
 
-Write `.claude/CLAUDE.md` inside the worktree directory using the template
+Before writing `CLAUDE.local.md`, ensure it is listed in the worktree's `.gitignore`.
+
+```bash
+WORKTREE_PATH="$(git gtr go <branch-name>)"
+if ! grep -q 'CLAUDE.local.md' "$WORKTREE_PATH/.gitignore" 2>/dev/null; then
+  echo -e '\n# Worktree用ローカルコンテキスト\nCLAUDE.local.md' >> "$WORKTREE_PATH/.gitignore"
+fi
+```
+
+This prevents `CLAUDE.local.md` from being accidentally committed.
+Also add to the **main repo's** `.gitignore` if not already present:
+
+```bash
+MAIN_GITIGNORE="$(git rev-parse --show-toplevel)/.gitignore"
+if ! grep -q 'CLAUDE.local.md' "$MAIN_GITIGNORE" 2>/dev/null; then
+  echo -e '\n# Worktree用ローカルコンテキスト\nCLAUDE.local.md' >> "$MAIN_GITIGNORE"
+fi
+```
+
+### 8. Generate CLAUDE.local.md
+
+Write `CLAUDE.local.md` in the worktree root directory using the template
 at `assets/worktree-claude-md.template`.
 
 Replace placeholders:
@@ -112,9 +135,11 @@ Replace placeholders:
 - `{{LABELS_SECTION}}` -> formatted labels list, or empty string if none
 - `{{TODO_SECTION}}` -> the ToDo checklist (same one added to the issue)
 
-Ensure `.claude/` directory exists in the worktree before writing.
+**Important**: Write to `CLAUDE.local.md` (project root), NOT `.claude/CLAUDE.md`.
+`CLAUDE.local.md` is automatically loaded by Claude Code and is excluded via `.gitignore` (ensured in step 7),
+so it won't cause merge conflicts when PRs from different worktrees are merged.
 
-### 8. Report Completion
+### 9. Report Completion
 
 Show the user:
 - Worktree path
